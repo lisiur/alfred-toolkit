@@ -1,0 +1,22 @@
+{
+  "name": "alfred-toolkit",
+  "version": "0.0.0",
+  "description": "a toolkit for alfred workflow development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisiur/alfred-toolkit.git"
+  },
+  "keywords": [
+    "alfred"
+  ],
+  "author": "lisiurday <lisiurday@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lisiur/alfred-toolkit/issues"
+  },
+  "homepage": "https://github.com/lisiur/alfred-toolkit#readme"
+}
