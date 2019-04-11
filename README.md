@@ -1,3 +1,6 @@
+# alfred-toolkit
+A toolkit for alfred workflow development **without dependencies**
+
 # Quick Start
 
 ```javascript
