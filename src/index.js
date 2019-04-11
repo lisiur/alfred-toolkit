@@ -1,6 +1,7 @@
-const alfred = {
+module.exports = {
   input: require('./input'),
   output: require('./output'),
+  get: require('./get'),
+  getJson: require('./getJson'),
+  download: require('./download'),
 }
-
-module.exports = alfred
