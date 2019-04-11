@@ -1,1 +1,1 @@
-module.exports = () => process.argv[2]
+module.exports = process.argv[2]
