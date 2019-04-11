@@ -1,6 +1,6 @@
 {
   "name": "alfred-toolkit",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "a toolkit for alfred workflow development",
   "main": "src/index.js",
   "scripts": {
