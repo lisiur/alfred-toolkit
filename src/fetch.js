@@ -36,7 +36,7 @@ module.exports = (url, options) => {
                 const response = {
                   statusCode: res.statusCode,
                   statusMessage: res.statusMessage,
-                  data: Buffer.concat(body).toJSON(),
+                  data: JSON.parse(Buffer.concat(body).toString()),
                 }
                 resolve(response)
               })
