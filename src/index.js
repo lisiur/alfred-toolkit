@@ -1,10 +1,14 @@
 const Cache = require('./cache')
 const get = require('./get')
+const getJson = require('./getJson')
+const download = require('./download')
 module.exports = {
   input: require('./input'),
   output: require('./output'),
   get,
   getCache: Cache.cache(get),
-  getJson: require('./getJson'),
-  download: require('./download'),
+  getJson,
+  getJsonCache: Cache.cache(getJson),
+  download,
+  downloadCache: Cache.cache(download)
 }
