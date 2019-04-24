@@ -1,13 +1,12 @@
 import { RequestOptions } from 'http'
 
-export interface response<T> {
+interface response<T> {
   statusCode: number
   statusMessage: string
   data: T
 }
 
 export const input: string
-export function output(): void
 
 export interface outputItem {
   /**
@@ -103,16 +102,17 @@ export interface outputItem {
    * feature within Alfred (tapping shift, or cmd+y). Note that quicklookurl
    * will also accept a file path, both absolute and relative to home using ~/.
    */
-  quicklookurl: string
+
+  quicklookurl?: string
 }
 
-export function output(items: outputItem[]): void
+export function output (items: outputItem[]): void
 
-export function get(url: string, options: RequestOptions): Promise<response<string>>
-export function getCache(url: string, options: RequestOptions): Promise<response<string>>
+export function get (url: string, options?: RequestOptions): Promise<response<string>>
+export function getCache (url: string, options?: RequestOptions): Promise<response<string>>
 
-export function getJson<T>(url: string, options: RequestOptions): Promise<response<T>>
-export function getJsonCache<T>(url: string, options: RequestOptions): Promise<response<T>>
+export function getJson<T> (url: string, options?: RequestOptions): Promise<response<T>>
+export function getJsonCache<T> (url: string, options?: RequestOptions): Promise<response<T>>
 
-export function download(targetPath: string, url: string, options: RequestOptions): Promise<string>
-export function downloadCache(targetPath: string, url: string, options: RequestOptions): Promise<string>
+export function download (targetPath: string, url: string, options?: RequestOptions): Promise<string>
+export function downloadCache (targetPath: string, url: string, options?: RequestOptions): Promise<string>
