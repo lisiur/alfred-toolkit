@@ -25,10 +25,10 @@ module.exports = (scopes, options) => {
     {
       includes: [],
       excludes: [],
-      deep: false,
+      deep: true,
       hidden: false,
-      folder: false,
-      file: false,
+      folder: true,
+      file: true,
     },
     options
   )
