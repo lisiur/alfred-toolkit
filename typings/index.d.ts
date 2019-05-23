@@ -116,3 +116,13 @@ export function getJsonCache<T> (url: string, options?: RequestOptions): Promise
 
 export function download (targetPath: string, url: string, options?: RequestOptions): Promise<string>
 export function downloadCache (targetPath: string, url: string, options?: RequestOptions): Promise<string>
+
+interface fileFilterOption {
+  includes?: string[]
+  excludes?: string[]
+  deep?: boolean
+  hidden?: boolean
+  folder?: boolean
+  file?: boolean
+}
+export function fileFilter (scopes: string[], options?: fileFilterOption): string[]

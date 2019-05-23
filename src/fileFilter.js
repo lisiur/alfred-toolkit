@@ -20,17 +20,18 @@ function fileFilter(file, { includes, excludes }) {
   return !excludes.some(exclude => minimatch(file, exclude))
 }
 
-module.exports = (
-  scopes,
-  options = {
-    includes: [],
-    excludes: [],
-    deep: false,
-    hidden: false,
-    folder: false,
-    file: false,
-  }
-) => {
+module.exports = (scopes, options) => {
+  const newOptions = Object.assign(
+    {
+      includes: [],
+      excludes: [],
+      deep: false,
+      hidden: false,
+      folder: false,
+      file: false,
+    },
+    options
+  )
   const result = []
   const stack = scopes.slice()
   while (stack.length > 0) {
@@ -40,27 +41,27 @@ module.exports = (
       const filePath = `${scope}/${file}`
       if (
         !fileFilter(filePath, {
-          includes: options.includes || [],
-          excludes: options.excludes || [],
+          includes: newOptions.includes || [],
+          excludes: newOptions.excludes || [],
         })
       ) {
         // not pass reg
         return
       }
-      if (!options.hidden && file.startsWith('.')) {
+      if (!newOptions.hidden && file.startsWith('.')) {
         // not include hidden file
         return
       }
       const state = fs.statSync(filePath)
-      if (!options.folder && state.isDirectory()) {
+      if (!newOptions.folder && state.isDirectory()) {
         // not include folder
         return
       }
-      if (!options.file && state.isFile()) {
+      if (!newOptions.file && state.isFile()) {
         // not include file
         return
       }
-      if (options.deep && state.isDirectory()) {
+      if (newOptions.deep && state.isDirectory()) {
         // deep search
         stack.push(filePath)
       }
